@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+	<context:component-scan base-package="wye"/>
+		<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan> -->
+	
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	<mvc:annotation-driven validator="validator"/>
+
+	<mvc:default-servlet-handler />
+
+	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	
+
+
+	<!-- interceptor -->
+
+	<!-- <bean id="loginInterceptor" class="cn.jsfund.trade.web.interceptor.LoginInterceptor" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/account/*" />
+			<mvc:mapping path="/trade/**" />
+			<mvc:mapping path="/query/*" />
+			<mvc:mapping path="/custom/**" />
+			<mvc:mapping path="/hifas/**" />
+			<mvc:mapping path="/service/*" />
+			<mvc:mapping path="/bocpension/**" />
+			<mvc:mapping path="/perinfo/**" />
+			<mvc:mapping path="/seccenter/**" />
+			
+			外汇通交易
+			<mvc:mapping path="/forex/**" />
+			系统切换
+			<mvc:mapping path="/syswitch" />
+			应用平台
+			<mvc:mapping path="/system/*" />
+			<mvc:exclude-mapping path="/bocpension"/>
+			<mvc:exclude-mapping path="/bocpension/"/>
+			<mvc:exclude-mapping path="/bocpension/passport"/>
+			<mvc:exclude-mapping path="/bocpension/pastdue"/>
+			<mvc:exclude-mapping path="/bocpension/logout"/>
+			<mvc:exclude-mapping path="/custom/productinfoquery"/>
+			<ref bean="loginInterceptor" />
+		</mvc:interceptor>
+
+	</mvc:interceptors> -->
+	
+
+	<!-- <mvc:view-controller path="/" view-name="redirect:/index"/>
+	<mvc:view-controller path="/bocpension" view-name="redirect:/bocpension/passport"/>
+	<mvc:view-controller path="/bocpension/" view-name="redirect:/bocpension/passport"/>
+	<mvc:view-controller path="/export" view-name="query/export"/>
+	<mvc:view-controller path="/tjbocexport" view-name="bocpension/tjbocexport"/>
+	<mvc:view-controller path="/trade/jsexclude_cornucopia" view-name="trade/cornucopia"/>
+	<mvc:view-controller path="/trade/jsexclude_aip" view-name="trade/aip"/>
+	<mvc:view-controller path="/findpwdfinalerr" view-name="securitycenter/findpwdfinalerr"/>
+	<mvc:view-controller path="/custom/webmsgindex" view-name="custom/perwebmsg"/>
+	<mvc:view-controller path="/trade/remiticbchelp" view-name="/trade/remiticbchelp"/>
+	<mvc:view-controller path="/pastdue" view-name="pastdue"/>
+	<mvc:view-controller path="/bocpension/pastdue" view-name="bocpension/pastdue"/>
+	<mvc:view-controller path="/custom/activesuccess" view-name="account/openaccount/activesuccess"/>
+	<mvc:view-controller path="/mobile/error" view-name="mobile/error"/>
+	<mvc:view-controller path="/mobile/authorize" view-name="mobile/authorize"/>
+	<mvc:view-controller path="/bocpension/custom/tjbocactivesuccess" view-name="account/openaccount/tjbocactivesuccess"/>
+	<mvc:view-controller path="/forex/accountmag/etfactivesuccess" view-name="account/openaccount/tjbocactivesuccess"/>
+	<mvc:view-controller path="/baidu/checkpwdurl" view-name="baidu/checkpwd"/> -->
+</beans>

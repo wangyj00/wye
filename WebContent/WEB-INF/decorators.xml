@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/layouts/">
+	<excludes>
+		<pattern>/static/*</pattern>
+		<pattern>/api/*</pattern>
+		<pattern>/custom/validate*</pattern>
+		<pattern>/bocpension/passport</pattern>
+		<pattern>/jsp/*</pattern>
+		<pattern>/mobile/*</pattern>	
+		<pattern>/custom/productinfoquery*</pattern>
+		<pattern>/passport*</pattern>
+		<pattern>/excllogin*</pattern>
+		<pattern>/index</pattern>
+		<pattern>/forexpassport*</pattern>
+		<pattern>/forexregist*</pattern>
+		<pattern>/baidu/*</pattern>
+	</excludes>
+	
+	<decorator name="default" page="sysdefault.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	
+	<decorator name="bocpension" page="bocpensionlayouts/default.jsp">
+		<pattern>/bocpension/*</pattern>
+	</decorator>
+	
+	<!-- 外汇通 -->
+	<decorator name="forex" page="forex/default.jsp">
+		<pattern>/forex/*</pattern>
+	</decorator>
+	
+	<!-- 找回密码 -->
+	<decorator name="resetPwd" page="common/default.jsp">
+		<pattern>/resetpwd/*</pattern>
+	</decorator>
+	
+	<decorator name="resetPwd" page="common/default.jsp">
+		<pattern>/findpwd*</pattern>
+	</decorator>
+	
+	<decorator name="ia" page="ia.jsp">
+		<pattern>/ia/*</pattern>
+	</decorator>
+	
+</decorators>
